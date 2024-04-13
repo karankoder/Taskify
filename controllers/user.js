@@ -8,17 +8,15 @@ export const register = async (req, res) => {
     const { name, email, password } = req.body;
     let user = await User.findOne({ email });
     if (user) {
-      return res
-        .status(404)
-        .json({ success: false, message: 'User already exists' });
+      return next(new ErrorHandler('User Already Exists.', 404));
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
     user = await User.create({ name, email, password: hashedPassword });
 
     sendCookie(user, res, 201, 'User Registered Successfully');
-  } catch {
-    res.status(500).json({ success: false, message: 'Internal Server Error' });
+  } catch (error) {
+    next(error);
   }
 };
 
@@ -27,22 +25,18 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email }).select('+password');
     if (!user) {
-      return res
-        .status(404)
-        .json({ success: false, message: 'Invalid Credentials' });
+      return next(new ErrorHandler('Invalid Credentials', 404));
     }
 
     console.log(user);
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
-      return res
-        .status(404)
-        .json({ success: false, message: 'Incorrect Password' });
+      return next(new ErrorHandler('Incorrect Password', 404));
     }
     sendCookie(user, res, 201, 'User Logged In Successfully');
-  } catch {
-    res.status(500).json({ success: false, message: 'Internal Server Error' });
+  } catch (error) {
+    next(error);
   }
 };
 
@@ -52,8 +46,8 @@ export const myProfile = (req, res) => {
       success: true,
       user: req.user,
     });
-  } catch {
-    res.status(500).json({ success: false, message: 'Internal Server Error' });
+  } catch (error) {
+    next(error);
   }
 };
 
