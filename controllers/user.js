@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { sendCookie } from '../utils/features.js';
 
-export const register = async (req, res) => {
+export const register = async (req, res, next) => {
   try {
     const { name, email, password } = req.body;
     let user = await User.findOne({ email });
@@ -20,7 +20,7 @@ export const register = async (req, res) => {
   }
 };
 
-export const login = async (req, res) => {
+export const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email }).select('+password');
@@ -40,7 +40,7 @@ export const login = async (req, res) => {
   }
 };
 
-export const myProfile = (req, res) => {
+export const myProfile = (req, res, next) => {
   try {
     res.status(200).json({
       success: true,
@@ -51,7 +51,7 @@ export const myProfile = (req, res) => {
   }
 };
 
-export const logout = (req, res) => {
+export const logout = (req, res, next) => {
   res
     .status(200)
     .cookie('token', '', { expires: new Date(Date.now()) })
