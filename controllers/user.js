@@ -2,6 +2,7 @@ import { User } from '../models/user.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { sendCookie } from '../utils/features.js';
+import ErrorHandler from '../middlewares/error.js';
 
 export const register = async (req, res, next) => {
   try {
