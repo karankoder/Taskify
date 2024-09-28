@@ -4,6 +4,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { Context, server } from '../../main';
 import { Navigate } from 'react-router-dom';
+import Loader from '../../components/Loader';
 
 function Register() {
 
