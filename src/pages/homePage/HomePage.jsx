@@ -40,7 +40,7 @@ function HomePage() {
             setLoading(false);
         }
     }
-
+    console.log(isAuthenticated);
     if (isAuthenticated) {
         navigate('/main');
     }
@@ -84,6 +84,9 @@ function HomePage() {
                             <i className='button__icon fas fa-chevron-right'></i>
                         </button>
                     </form>
+                    <a href='http://localhost:4000/Oauth2/google/' className="login-with-google-btn googleButton" >
+                        Sign in with Google
+                    </a>
                     <div className='social-login'>
                         <h5>Not Registered?</h5>
                         <Link to='/register'>Signup Here</Link>

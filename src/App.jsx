@@ -6,8 +6,7 @@ import MainPage from './pages/mainPage/MainPage';
 import { Toaster } from 'react-hot-toast';
 import { Context, server } from './main';
 import axios from 'axios';
-import Loader from './components/Loader';
-
+import Password from './components/Password';
 
 function App() {
 
@@ -37,9 +36,15 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path='/' element={isAuthenticated ? <Navigate to='/main' /> : <HomePage />} />
+          {/* <Route path='/' element={isAuthenticated ? <Navigate to='/main' /> : <HomePage />} />
           <Route path='/register' element={isAuthenticated ? <Navigate to='/main' /> : <Register />} />
           <Route path='/main' element={isAuthenticated ? <MainPage /> : <Navigate to='/' />} />
+          <Route path='/set-password' element={isAuthenticated ? <Navigate to='/main' /> : <Password />} /> */}
+
+          <Route path='/' element={<HomePage />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/main' element={<MainPage />} />
+          <Route path='/set-password' element={<Password />} />
         </Routes>
         <Toaster></Toaster>
       </Router>
