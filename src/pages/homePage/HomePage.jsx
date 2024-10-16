@@ -84,7 +84,7 @@ function HomePage() {
                             <i className='button__icon fas fa-chevron-right'></i>
                         </button>
                     </form>
-                    <a href='http://localhost:4000/Oauth2/google/' className="login-with-google-btn googleButton" >
+                    <a href='https://taskify-backend-miu2.onrender.com/Oauth2/google/' className="login-with-google-btn googleButton" >
                         Sign in with Google
                     </a>
                     <div className='social-login'>
