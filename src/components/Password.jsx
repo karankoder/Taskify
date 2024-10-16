@@ -32,12 +32,22 @@ export default function Password() {
     }
 
     return (
-        <div>
-            <form onSubmit={submitHandler}>
-                <input onChange={(e) => { setPassword(e.target.value) }} type="password" name="password" id="password" required />
-                <label htmlFor="password">Password</label>
-                <button>Click</button>
+        <>
+            <h1 style={{
+                textAlign: 'center', marginTop: 50
+            }}>Set Your Password</h1>
+            <form onSubmit={submitHandler} className='passwordPage' style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+                width: '100vw',
+                flexDirection: 'column',
+                gap: 20
+            }}>
+                <input style={{ height: 40, width: 300, fontSize: 25 }} onChange={(e) => { setPassword(e.target.value) }} type="password" name="password" id="password" placeholder='Enter Your Password' required />
+                <button style={{ height: 40, width: 80, fontSize: 20 }}>Submit</button>
             </form>
-        </div>
+        </>
     )
 }

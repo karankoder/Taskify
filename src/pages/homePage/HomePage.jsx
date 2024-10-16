@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { Context, server } from '../../main';
 import axios from 'axios';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Loader from '../../components/Loader';
 
 function HomePage() {
