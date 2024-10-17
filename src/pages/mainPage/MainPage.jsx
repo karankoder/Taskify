@@ -88,6 +88,10 @@ function MainPage() {
             setLoading(false);
         }
     };
+
+    if (!isAuthenticated) {
+        navigate('/');
+    }
     useEffect(() => {
 
         if (!isAuthenticated) {

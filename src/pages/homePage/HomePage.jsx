@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import './HomePage.css';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { Context, server } from '../../main';
+import { Context, outhGoogleUrl, server } from '../../main';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Loader from '../../components/Loader';
@@ -84,7 +84,7 @@ function HomePage() {
                             <i className='button__icon fas fa-chevron-right'></i>
                         </button>
                     </form>
-                    <a href='https://taskify-backend-miu2.onrender.com/Oauth2/google/' className="login-with-google-btn googleButton" >
+                    <a href={outhGoogleUrl} className="login-with-google-btn googleButton" >
                         Sign in with Google
                     </a>
                     <div className='social-login'>

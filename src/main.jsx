@@ -5,7 +5,9 @@ import './index.css'
 import { createContext, useState } from 'react'
 
 export const server = "https://taskify-backend-miu2.onrender.com/api/v1";
+export const outhGoogleUrl = "https://taskify-backend-miu2.onrender.com/Oauth2/google/"
 // export const server = "http://localhost:4000/api/v1";
+// export const outhGoogleUrl = "https:localhost:4000/Oauth2/google/"
 
 export const Context = createContext({ isAuthenticated: false });
 
