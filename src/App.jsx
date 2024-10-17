@@ -41,10 +41,10 @@ function App() {
           <Route path='/main' element={isAuthenticated ? <MainPage /> : <Navigate to='/' />} />
           <Route path='/set-password' element={isAuthenticated ? <Navigate to='/main' /> : <Password />} /> */}
 
-          <Route path='/' element={<HomePage />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/main' element={<MainPage />} />
-          <Route path='/setPassword' element={<Password />} />
+          <Route exact path='/' element={<HomePage />} />
+          <Route exact path='/register' element={<Register />} />
+          <Route exact path='/main' element={<MainPage />} />
+          <Route exact path='/setPassword' element={<Password />} />
         </Routes>
         <Toaster></Toaster>
       </Router>
