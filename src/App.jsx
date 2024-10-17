@@ -44,7 +44,7 @@ function App() {
           <Route path='/' element={<HomePage />} />
           <Route path='/register' element={<Register />} />
           <Route path='/main' element={<MainPage />} />
-          <Route path='/set-password' element={<Password />} />
+          <Route path='/setPassword' element={<Password />} />
         </Routes>
         <Toaster></Toaster>
       </Router>
